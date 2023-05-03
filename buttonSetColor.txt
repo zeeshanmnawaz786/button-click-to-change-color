@@ -1,0 +1,34 @@
+import { useState } from 'react';
+
+function ButtonGroup() {
+  const [activeButton, setActiveButton] = useState(null);
+
+  const handleClick = (buttonIndex) => {
+    setActiveButton(buttonIndex);
+  };
+
+  const buttonClasses = "flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 hover:text-gray-100 hover:bg-[#3b5998] focus:bg-gray-900 focus:text-white focus:outline-none active:bg-gray-100 active:text-gray-700";
+
+  return (
+    <div>
+      <button
+        className={`${buttonClasses} ${activeButton === 0 ? 'bg-red-500' : 'bg-blue-500'}`}
+        onClick={() => handleClick(0)}
+      >
+        Button 1
+      </button>
+      <button
+        className={`${buttonClasses} ${activeButton === 1 ? 'bg-red-500' : 'bg-blue-500'}`}
+        onClick={() => handleClick(1)}
+      >
+        Button 2
+      </button>
+      <button
+        className={`${buttonClasses} ${activeButton === 2 ? 'bg-red-500' : 'bg-blue-500'}`}
+        onClick={() => handleClick(2)}
+      >
+        Button 3
+      </button>
+    </div>
+  );
+}
